@@ -21,18 +21,17 @@ jobs:
       run: |
         pip install selenium gspread oauth2client pandas
 
-        - name: Install Chrome & ChromeDriver
-        run: |
-          # Cài bản Chrome ổn định
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo dpkg -i google-chrome-stable_current_amd64.deb || true
-          sudo apt-get -f install -y
-          wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/bin/chromedriver
-          sudo chmod +x /usr/bin/chromedriver
-          sudo ln -sf /usr/bin/chromedriver /usr/local/bin/chromedriver
-          sudo ln -sf /usr/bin/google-chrome /usr/bin/chrome
+    - name: Install Chrome & ChromeDriver
+      run: |
+        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        sudo dpkg -i google-chrome-stable_current_amd64.deb || true
+        sudo apt-get -f install -y
+        wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
+        unzip chromedriver_linux64.zip
+        sudo mv chromedriver /usr/bin/chromedriver
+        sudo chmod +x /usr/bin/chromedriver
+        sudo ln -sf /usr/bin/chromedriver /usr/local/bin/chromedriver
+        sudo ln -sf /usr/bin/google-chrome /usr/bin/chrome
 
 
     - name: Run scraper
