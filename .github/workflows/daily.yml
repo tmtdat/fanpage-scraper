@@ -2,7 +2,7 @@ name: Daily scrape Facebook page
 
 on:
   schedule:
-    - cron: "0 2 * * *"  # Chạy lúc 09:00 sáng giờ VN (2h UTC)
+    - cron: "0 2 * * *"  # Chạy lúc 09:00 sáng giờ VN
   workflow_dispatch:
 
 jobs:
@@ -24,8 +24,9 @@ jobs:
     - name: Set up Chrome
       run: |
         sudo apt-get update
-        sudo apt-get install -y chromium-chromedriver
-        sudo ln -s /usr/bin/chromium-browser /usr/bin/google-chrome
+        sudo apt-get install -y chromium-browser chromium-chromedriver
+        sudo ln -sf /snap/bin/chromium /usr/bin/google-chrome
+        sudo ln -sf /snap/bin/chromium.chromedriver /usr/bin/chromedriver
 
     - name: Run scraper
       env:
