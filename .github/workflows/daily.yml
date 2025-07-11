@@ -2,7 +2,7 @@ name: Daily scrape Facebook page
 
 on:
   schedule:
-    - cron: "0 2 * * *"  # Chạy lúc 09:00 sáng giờ VN
+    - cron: "21 20 * * *"  # 4h sáng VN (GMT+7 == UTC+0 + 7h => 4h VN = 21h UTC hôm trước)
   workflow_dispatch:
 
 jobs:
